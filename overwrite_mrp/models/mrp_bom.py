@@ -39,7 +39,7 @@ class Override_Bom(models.Model):
     bom_line_ids = fields.One2many('mrp.bom.line', 'bom_id', 'BoM Lines', copy=True)
     mrp_bom_lines_tracking = fields.Char(string='Rastreo Lineas de Lista de Materiales', compute='_take_lines_bom')
 
-    type_bom = fields.Selection(
+    '''type_bom = fields.Selection(
         string='Tipo', 
         selection=[('Menú', 'Menú'), ('Preparación', 'Preparación')],
         tracking=True)
@@ -52,7 +52,7 @@ class Override_Bom(models.Model):
     food_time_preparation = fields.Many2many(
         'overwrite_mrp.food_time',
         string='Tiempo de comida',
-        tracking=True)
+        tracking=True)'''
 
     @api.depends('bom_line_ids')
     def _take_lines_bom(self):
